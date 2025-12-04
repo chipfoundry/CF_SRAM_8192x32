@@ -27,7 +27,7 @@
     `define USE_PG_PIN
 `endif
 
-module CF_SRAM_8192x32 (
+module CF_SRAM_8192x32_core (
     output [31:0] DO,
     output ScanOutCC,
     input  [31:0] DI,

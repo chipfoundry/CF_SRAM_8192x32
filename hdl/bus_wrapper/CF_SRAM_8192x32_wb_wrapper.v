@@ -33,7 +33,7 @@
     `define USE_PG_PIN
 `endif
 
-module CF_SRAM_8192x32_wb_wrapper #(parameter WIDTH = 15) (
+module CF_SRAM_8192x32 #(parameter WIDTH = 15) (
 `ifdef USE_POWER_PINS
     inout VPWR,
     inout VGND,
@@ -94,7 +94,7 @@ module CF_SRAM_8192x32_wb_wrapper #(parameter WIDTH = 15) (
 
     // Instantiate the CF_SRAM_8192x32 macro
     // This is where your actual SRAM IP or memory block would be placed.
-    CF_SRAM_8192x32 i_sram (
+    CF_SRAM_8192x32_core i_sram (
         .DO         (sram_do),
         .AD         (sram_ad),
         .BEN        (sram_ben),

@@ -134,5 +134,15 @@ yarn-error.log*
 *.conf
 config.local.* 
 
+# OpenLane/LibreLane build artifacts
+openlane/.venv/
+openlane/.version-*
+openlane/*/runs/
+openlane/*/tmp/
+openlane/*/*.log
+openlane/*/error.log
+openlane/*/warning.log
+openlane/*/flow.log
+
 EF_SRAM*
 S8TSSC*
