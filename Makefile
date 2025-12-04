@@ -115,7 +115,7 @@ github-release: tarball
 		fi; \
 		gh release create $(VERSION) \
 			--repo $(GITHUB_REPO) \
-			--title "$(IP_NAME) $(VERSION)" \
+			--title "$(IP_NAME)-$(VERSION)" \
 			--notes "Release $(VERSION) of $(IP_NAME)" \
 			$(TARBALL) || \
 		(echo "Note: If authentication failed, run 'gh auth login' or set GITHUB_TOKEN"; exit 1); \
@@ -126,7 +126,7 @@ github-release: tarball
 		echo "Alternatively, create the release manually:"; \
 		echo "  1. Go to: https://github.com/$(GITHUB_REPO)/releases/new"; \
 		echo "  2. Tag: $(VERSION)"; \
-		echo "  3. Title: $(IP_NAME) $(VERSION)"; \
+		echo "  3. Title: $(IP_NAME)-$(VERSION)"; \
 		echo "  4. Upload: $(TARBALL)"; \
 		exit 1; \
 	fi
