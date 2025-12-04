@@ -26,7 +26,9 @@ include $(PROJECT_ROOT)/openlane/Makefile
 
 # IPM Package Configuration
 IP_NAME := CF_SRAM_8192x32
-VERSION := $(shell python3 -c "import json; f=open('$(IP_NAME).json'); d=json.load(f); print(d['info']['version']); f.close()")
+YAML_FILE := $(IP_NAME).yaml
+JSON_FILE := $(IP_NAME).json
+VERSION := $(shell python3 -c "import yaml; f=open('$(YAML_FILE)'); d=yaml.safe_load(f); print(d['info']['version']); f.close()")
 TARBALL := $(VERSION).tar.gz
 PACKAGE_DIR := package-$(VERSION)
 GITHUB_REPO := chipfoundry/$(IP_NAME)
@@ -39,6 +41,7 @@ help:
 	@echo "  make CF_SRAM_8192x32  - Build the SRAM wrapper macro"
 	@echo "  make list                         - List available designs"
 	@echo "  make librelane                    - Setup LibreLane environment"
+	@echo "  make json                         - Regenerate JSON from YAML"
 	@echo "  make package                      - Prepare IPM package directory"
 	@echo "  make tarball                      - Create IPM package tarball"
 	@echo "  make github-release               - Create GitHub release with tarball"
@@ -51,8 +54,15 @@ help:
 	@echo "  CF_LIBRELANE_TAG - LibreLane tag (default: CI2511)"
 	@echo "  GITHUB_TOKEN - GitHub token for creating releases (required for github-release)"
 
+.PHONY: json
+json: $(JSON_FILE)
+
+$(JSON_FILE): $(YAML_FILE) yaml_to_json.py
+	@echo "Regenerating $(JSON_FILE) from $(YAML_FILE)..."
+	@python3 yaml_to_json.py $(YAML_FILE) $(JSON_FILE)
+
 .PHONY: package
-package: clean-package
+package: json clean-package
 	@echo "Preparing IPM package for $(VERSION)..."
 	@mkdir -p $(PACKAGE_DIR)
 	@if command -v rsync > /dev/null; then \

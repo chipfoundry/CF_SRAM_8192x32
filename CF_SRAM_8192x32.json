@@ -7,7 +7,7 @@
         "license": "",
         "author": "Umbralogic Technologies LLC.",
         "email": "ip-admin@chipfoundry.com",
-        "version": "v1.0.0",
+        "version": "v1.0.1",
         "date": "01-21-2025",
         "category": "digital",
         "tags": [
@@ -18,16 +18,15 @@
             "WB"
         ],
         "type": "hard",
-        "maturity": "Verified",
-        "cell_count": "",
-        "width": 1440,
+        "width": 1450,
         "height": 920,
         "technology": "sky130",
-        "clock_freq_mhz": 100,
+        "maturity": "Verified",
         "supply_voltage": [
             1.8
-        ]
+        ],
+        "cell_count": "",
+        "clock_freq_mhz": 100
     },
     "registers": []
 }
-
