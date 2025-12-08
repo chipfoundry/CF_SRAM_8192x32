@@ -7,8 +7,8 @@
         "license": "",
         "author": "Umbralogic Technologies LLC.",
         "email": "ip-admin@chipfoundry.com",
-        "version": "v1.0.1",
-        "date": "01-21-2025",
+        "version": "v1.0.3",
+        "date": "12-08-2025",
         "category": "digital",
         "tags": [
             "SRAM",
@@ -18,8 +18,8 @@
             "WB"
         ],
         "type": "hard",
-        "width": 1450,
-        "height": 920,
+        "width": 860,
+        "height": 1380,
         "technology": "sky130",
         "maturity": "Verified",
         "supply_voltage": [

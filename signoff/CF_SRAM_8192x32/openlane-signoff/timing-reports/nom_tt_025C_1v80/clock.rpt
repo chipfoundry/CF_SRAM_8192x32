@@ -3,14 +3,14 @@ Sources: wb_clk_i
 Generated: no
 Virtual: yes
 Propagated: no
-Period: 20.000000
+Period: 25.000000
 
 ===========================================================================
 report_clock_properties
 ============================================================================
 Clock                   Period          Waveform
 ----------------------------------------------------
-wb_clk_i             20.000000    0.000000 10.000000
+wb_clk_i             25.000000    0.000000 12.500000
 
 ===========================================================================
 report_clock_latency
@@ -18,21 +18,21 @@ report_clock_latency
 Clock wb_clk_i
 rise -> rise
     min     max
-0.000000 0.000000 source latency
-0.777280         network latency i_sram.sram2/CLKin
-        0.832496 network latency i_sram.sram4/CLKin
+4.650000 5.570000 source latency
+5.582910         network latency i_sram.sram4/CLKin
+        6.570568 network latency i_sram.sram1/CLKin
 ---------------
-0.777280 0.832496 latency
-        0.055216 skew
+10.232910 12.140568 latency
+        1.907658 skew
 
 fall -> fall
     min     max
-0.000000 0.000000 source latency
-0.634644         network latency i_sram.sram2/CLKin
-        0.682515 network latency i_sram.sram4/CLKin
+4.650000 5.570000 source latency
+5.577357         network latency i_sram.sram4/CLKin
+        6.557954 network latency i_sram.sram1/CLKin
 ---------------
-0.634644 0.682515 latency
-        0.047871 skew
+10.227357 12.127954 latency
+        1.900597 skew
 
 
 

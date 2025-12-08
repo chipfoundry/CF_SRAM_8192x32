@@ -1,0 +1,324 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= nom_ss_100C_1v60 Corner ===================================
+
+Startpoint: wb_rst_i (input port clocked by wb_clk_i)
+Endpoint: _674_ (recovery check against rising-edge clock wb_clk_i)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock wb_clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 v input external delay
+     1    0.001968    0.000000    0.000000    1.000000 v wb_rst_i (in)
+                                                         wb_rst_i (net)
+                      0.000041    0.000020    1.000020 v hold1/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.002060    0.099287    1.082957    2.082977 v hold1/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                                                         net160 (net)
+                      0.099287    0.000039    2.083016 v input1/A (sky130_fd_sc_hd__buf_1)
+     1    0.010141    0.126372    0.236239    2.319255 v input1/X (sky130_fd_sc_hd__buf_1)
+                                                         net1 (net)
+                      0.126372    0.000503    2.319758 v _377_/A (sky130_fd_sc_hd__inv_2)
+     1    0.016952    0.133915    0.164292    2.484051 ^ _377_/Y (sky130_fd_sc_hd__inv_2)
+                                                         _000_ (net)
+                      0.133968    0.001033    2.485084 ^ _674_/RESET_B (sky130_fd_sc_hd__dfrtp_1)
+                                              2.485084   data arrival time
+
+                                 20.000000   20.000000   clock wb_clk_i (rise edge)
+                                  0.000000   20.000000   clock source latency
+     1    0.135118    0.000000    0.000000   20.000000 ^ wb_clk_i (in)
+                                                         wb_clk_i (net)
+                      0.019380    0.009690   20.009691 ^ clkbuf_0_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.105355    0.184365    0.294641   20.304331 ^ clkbuf_0_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_wb_clk_i (net)
+                      0.185552    0.011811   20.316143 ^ clkbuf_1_0__f_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
+     5    0.663564    0.997404    0.857826   21.173967 ^ clkbuf_1_0__f_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_wb_clk_i (net)
+                      1.016649    0.111660   21.285627 ^ _674_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                                 -0.250000   21.035629   clock uncertainty
+                                  0.000000   21.035629   clock reconvergence pessimism
+                                  0.755594   21.791224   library recovery time
+                                             21.791224   data required time
+---------------------------------------------------------------------------------------------
+                                             21.791224   data required time
+                                             -2.485084   data arrival time
+---------------------------------------------------------------------------------------------
+                                             19.306139   slack (MET)
+
+
+Startpoint: wbs_adr_i[12] (input port clocked by wb_clk_i)
+Endpoint: wbs_dat_o[5] (output port clocked by wb_clk_i)
+Path Group: wb_clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock wb_clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  1.000000    1.000000 v input external delay
+     1    0.003410    0.000000    0.000000    1.000000 v wbs_adr_i[12] (in)
+                                                         wbs_adr_i[12] (net)
+                      0.000089    0.000045    1.000044 v hold48/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.004655    0.127711    1.125884    2.125929 v hold48/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                                                         net207 (net)
+                      0.127711    0.000090    2.126019 v input4/A (sky130_fd_sc_hd__buf_6)
+     7    0.137201    0.211957    0.385643    2.511662 v input4/X (sky130_fd_sc_hd__buf_6)
+                                                         net4 (net)
+                      0.212948    0.011100    2.522762 v _390_/A_N (sky130_fd_sc_hd__nand2b_4)
+    36    0.227896    0.974816    0.954090    3.476852 v _390_/Y (sky130_fd_sc_hd__nand2b_4)
+                                                         _009_ (net)
+                      0.983968    0.076903    3.553755 v _397_/B (sky130_fd_sc_hd__nor2_8)
+    31    0.221011    1.276563    1.347792    4.901548 ^ _397_/Y (sky130_fd_sc_hd__nor2_8)
+                                                         i_sram.sram_cs[6] (net)
+                      1.276631    0.010049    4.911597 ^ _468_/A2 (sky130_fd_sc_hd__o211a_2)
+     1    0.069000    0.615938    1.115335    6.026932 ^ _468_/X (sky130_fd_sc_hd__o211a_2)
+                                                         _074_ (net)
+                      0.616576    0.016360    6.043292 ^ _470_/A3 (sky130_fd_sc_hd__o311a_2)
+     1    0.046578    0.413480    0.774459    6.817751 ^ _470_/X (sky130_fd_sc_hd__o311a_2)
+                                                         _076_ (net)
+                      0.413497    0.003049    6.820800 ^ _473_/A1 (sky130_fd_sc_hd__o211a_2)
+     1    0.049827    0.458454    0.801055    7.621855 ^ _473_/X (sky130_fd_sc_hd__o211a_2)
+                                                         _079_ (net)
+                      0.458614    0.008095    7.629950 ^ _474_/C1 (sky130_fd_sc_hd__a211o_1)
+     1    0.023245    0.327770    0.493575    8.123526 ^ _474_/X (sky130_fd_sc_hd__a211o_1)
+                                                         _080_ (net)
+                      0.327780    0.002204    8.125730 ^ _475_/C1 (sky130_fd_sc_hd__o211a_2)
+     2    0.048458    0.451683    0.748010    8.873739 ^ _475_/X (sky130_fd_sc_hd__o211a_2)
+                                                         net82 (net)
+                      0.451956    0.010228    8.883967 ^ output82/A (sky130_fd_sc_hd__buf_1)
+     1    0.000793    0.045767    0.247811    9.131779 ^ output82/X (sky130_fd_sc_hd__buf_1)
+                                                         wbs_dat_o[5] (net)
+                      0.045767    0.000008    9.131786 ^ wbs_dat_o[5] (out)
+                                              9.131786   data arrival time
+
+                                 20.000000   20.000000   clock wb_clk_i (rise edge)
+                                  0.000000   20.000000   clock network delay (propagated)
+                                 -0.250000   19.750002   clock uncertainty
+                                  0.000000   19.750002   clock reconvergence pessimism
+                                 -1.000000   18.750002   output external delay
+                                             18.750002   data required time
+---------------------------------------------------------------------------------------------
+                                             18.750002   data required time
+                                             -9.131786   data arrival time
+---------------------------------------------------------------------------------------------
+                                              9.618215   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= nom_ss_100C_1v60 Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= nom_ss_100C_1v60 Corner ===================================
+
+max slew
+
+Pin                                        Limit        Slew       Slack
+------------------------------------------------------------------------
+_415_/B                                 1.500000    1.696455   -0.196455 (VIOLATED)
+_666_/B                                 1.500000    1.696418   -0.196418 (VIOLATED)
+_407_/B                                 1.500000    1.696409   -0.196409 (VIOLATED)
+_398_/B                                 1.500000    1.696351   -0.196351 (VIOLATED)
+_650_/B                                 1.500000    1.696260   -0.196260 (VIOLATED)
+_658_/B                                 1.500000    1.696177   -0.196177 (VIOLATED)
+_642_/B                                 1.500000    1.696065   -0.196065 (VIOLATED)
+_614_/B                                 1.500000    1.695950   -0.195950 (VIOLATED)
+_425_/A1                                1.500000    1.695859   -0.195859 (VIOLATED)
+_632_/B                                 1.500000    1.695635   -0.195636 (VIOLATED)
+_622_/B                                 1.500000    1.695541   -0.195541 (VIOLATED)
+_606_/B                                 1.500000    1.695441   -0.195441 (VIOLATED)
+_397_/A                                 1.500000    1.695240   -0.195240 (VIOLATED)
+_580_/B                                 1.500000    1.694790   -0.194790 (VIOLATED)
+_588_/B                                 1.500000    1.694706   -0.194706 (VIOLATED)
+_598_/B                                 1.500000    1.694604   -0.194604 (VIOLATED)
+_564_/B                                 1.500000    1.694345   -0.194345 (VIOLATED)
+_458_/B                                 1.500000    1.693907   -0.193907 (VIOLATED)
+_572_/B                                 1.500000    1.693773   -0.193773 (VIOLATED)
+_434_/B                                 1.500000    1.693561   -0.193561 (VIOLATED)
+_555_/A1                                1.500000    1.693067   -0.193067 (VIOLATED)
+_442_/B                                 1.500000    1.692918   -0.192918 (VIOLATED)
+_450_/B                                 1.500000    1.692517   -0.192517 (VIOLATED)
+_466_/B                                 1.500000    1.692253   -0.192253 (VIOLATED)
+_486_/B                                 1.500000    1.691654   -0.191654 (VIOLATED)
+_476_/B                                 1.500000    1.691491   -0.191491 (VIOLATED)
+_496_/B                                 1.500000    1.691002   -0.191002 (VIOLATED)
+_424_/B                                 1.500000    1.690776   -0.190776 (VIOLATED)
+_504_/B                                 1.500000    1.690762   -0.190762 (VIOLATED)
+_512_/B                                 1.500000    1.689827   -0.189827 (VIOLATED)
+_528_/B                                 1.500000    1.689663   -0.189663 (VIOLATED)
+_544_/B                                 1.500000    1.688993   -0.188993 (VIOLATED)
+_520_/B                                 1.500000    1.688894   -0.188894 (VIOLATED)
+_536_/B                                 1.500000    1.688467   -0.188467 (VIOLATED)
+_554_/B                                 1.500000    1.686527   -0.186527 (VIOLATED)
+ANTENNA_1/DIODE                         1.500000    1.686467   -0.186467 (VIOLATED)
+_380_/Y                                 1.498458    1.680361   -0.181903 (VIOLATED)
+_384_/C                                 1.500000    1.681890   -0.181890 (VIOLATED)
+
+max capacitance
+
+Pin                                        Limit         Cap       Slack
+------------------------------------------------------------------------
+_380_/Y                                 0.227061    0.261727   -0.034666 (VIOLATED)
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 92 unannotated drivers.
+ wbs_adr_i[0]
+ wbs_adr_i[15]
+ wbs_adr_i[16]
+ wbs_adr_i[17]
+ wbs_adr_i[18]
+ wbs_adr_i[19]
+ wbs_adr_i[1]
+ wbs_adr_i[20]
+ wbs_adr_i[21]
+ wbs_adr_i[22]
+ wbs_adr_i[23]
+ wbs_adr_i[24]
+ wbs_adr_i[25]
+ wbs_adr_i[26]
+ wbs_adr_i[27]
+ wbs_adr_i[28]
+ wbs_adr_i[29]
+ wbs_adr_i[30]
+ wbs_adr_i[31]
+ clkload0/X
+ i_sram.sram0/ScanOutCC
+ i_sram.sram0_100/HI
+ i_sram.sram0_101/HI
+ i_sram.sram0_144/LO
+ i_sram.sram0_145/LO
+ i_sram.sram0_96/HI
+ i_sram.sram0_97/HI
+ i_sram.sram0_98/HI
+ i_sram.sram0_99/HI
+ i_sram.sram1/ScanOutCC
+ i_sram.sram1_102/HI
+ i_sram.sram1_103/HI
+ i_sram.sram1_104/HI
+ i_sram.sram1_105/HI
+ i_sram.sram1_106/HI
+ i_sram.sram1_107/HI
+ i_sram.sram1_146/LO
+ i_sram.sram1_147/LO
+ i_sram.sram2/ScanOutCC
+ i_sram.sram2_108/HI
+ i_sram.sram2_109/HI
+ i_sram.sram2_110/HI
+ i_sram.sram2_111/HI
+ i_sram.sram2_112/HI
+ i_sram.sram2_113/HI
+ i_sram.sram2_148/LO
+ i_sram.sram2_149/LO
+ i_sram.sram3/ScanOutCC
+ i_sram.sram3_114/HI
+ i_sram.sram3_115/HI
+ i_sram.sram3_116/HI
+ i_sram.sram3_117/HI
+ i_sram.sram3_118/HI
+ i_sram.sram3_119/HI
+ i_sram.sram3_150/LO
+ i_sram.sram3_151/LO
+ i_sram.sram4/ScanOutCC
+ i_sram.sram4_120/HI
+ i_sram.sram4_121/HI
+ i_sram.sram4_122/HI
+ i_sram.sram4_123/HI
+ i_sram.sram4_124/HI
+ i_sram.sram4_125/HI
+ i_sram.sram4_152/LO
+ i_sram.sram4_153/LO
+ i_sram.sram5/ScanOutCC
+ i_sram.sram5_126/HI
+ i_sram.sram5_127/HI
+ i_sram.sram5_128/HI
+ i_sram.sram5_129/HI
+ i_sram.sram5_130/HI
+ i_sram.sram5_131/HI
+ i_sram.sram5_154/LO
+ i_sram.sram5_155/LO
+ i_sram.sram6/ScanOutCC
+ i_sram.sram6_132/HI
+ i_sram.sram6_133/HI
+ i_sram.sram6_134/HI
+ i_sram.sram6_135/HI
+ i_sram.sram6_136/HI
+ i_sram.sram6_137/HI
+ i_sram.sram6_156/LO
+ i_sram.sram6_157/LO
+ i_sram.sram7/ScanOutCC
+ i_sram.sram7_138/HI
+ i_sram.sram7_139/HI
+ i_sram.sram7_140/HI
+ i_sram.sram7_141/HI
+ i_sram.sram7_142/HI
+ i_sram.sram7_143/HI
+ i_sram.sram7_158/LO
+ i_sram.sram7_159/LO
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 38
+max fanout violation count 0
+max cap violation count 1
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================
+Warning: There are 40 unconstrained endpoints.
+  i_sram.sram0/SM
+  i_sram.sram0/ScanInCC
+  i_sram.sram0/ScanInDL
+  i_sram.sram0/ScanInDR
+  i_sram.sram0/TM
+  i_sram.sram1/SM
+  i_sram.sram1/ScanInCC
+  i_sram.sram1/ScanInDL
+  i_sram.sram1/ScanInDR
+  i_sram.sram1/TM
+  i_sram.sram2/SM
+  i_sram.sram2/ScanInCC
+  i_sram.sram2/ScanInDL
+  i_sram.sram2/ScanInDR
+  i_sram.sram2/TM
+  i_sram.sram3/SM
+  i_sram.sram3/ScanInCC
+  i_sram.sram3/ScanInDL
+  i_sram.sram3/ScanInDR
+  i_sram.sram3/TM
+  i_sram.sram4/SM
+  i_sram.sram4/ScanInCC
+  i_sram.sram4/ScanInDL
+  i_sram.sram4/ScanInDR
+  i_sram.sram4/TM
+  i_sram.sram5/SM
+  i_sram.sram5/ScanInCC
+  i_sram.sram5/ScanInDL
+  i_sram.sram5/ScanInDR
+  i_sram.sram5/TM
+  i_sram.sram6/SM
+  i_sram.sram6/ScanInCC
+  i_sram.sram6/ScanInDL
+  i_sram.sram6/ScanInDR
+  i_sram.sram6/TM
+  i_sram.sram7/SM
+  i_sram.sram7/ScanInCC
+  i_sram.sram7/ScanInDL
+  i_sram.sram7/ScanInDR
+  i_sram.sram7/TM

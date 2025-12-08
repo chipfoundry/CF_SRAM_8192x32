@@ -142,8 +142,8 @@
     "DIE_AREA": [
         0,
         0,
-        1450,
-        920
+        680,
+        1650
     ],
     "EXTRA_EXCLUDED_CELLS": null,
     "MACROS": null,
@@ -289,8 +289,8 @@
     "CORE_AREA": [
         5,
         5,
-        1445,
-        915
+        675,
+        1645
     ],
     "BOTTOM_MARGIN_MULT": 4,
     "TOP_MARGIN_MULT": 4,
