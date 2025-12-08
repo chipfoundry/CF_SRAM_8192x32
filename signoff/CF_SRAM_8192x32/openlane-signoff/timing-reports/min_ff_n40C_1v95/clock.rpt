@@ -19,20 +19,20 @@ Clock wb_clk_i
 rise -> rise
     min     max
 4.650000 5.570000 source latency
-5.267081         network latency i_sram.sram4/CLKin
-        6.240738 network latency i_sram.sram1/CLKin
+5.276834         network latency i_sram.sram4/CLKin
+        6.250696 network latency i_sram.sram6/CLKin
 ---------------
-9.917081 11.810738 latency
-        1.893657 skew
+9.926834 11.820696 latency
+        1.893862 skew
 
 fall -> fall
     min     max
 4.650000 5.570000 source latency
-5.330414         network latency i_sram.sram4/CLKin
-        6.299384 network latency i_sram.sram6/CLKin
+5.317846         network latency i_sram.sram4/CLKin
+        6.288902 network latency i_sram.sram6/CLKin
 ---------------
-9.980413 11.869384 latency
-        1.888971 skew
+9.967846 11.858902 latency
+        1.891056 skew
 
 
 
