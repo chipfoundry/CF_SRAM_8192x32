@@ -71,7 +71,7 @@ package: json clean-package
 			--exclude='.gitignore' \
 			--exclude='.DS_Store' \
 			--exclude='*.tar.gz' \
-			--exclude='$(PACKAGE_DIR)' \
+			--exclude='package-*' \
 			--exclude='openlane' \
 			--exclude='Makefile' \
 			--exclude='*.log' \
@@ -85,7 +85,7 @@ package: json clean-package
 		echo "rsync not found, using tar method..."; \
 		find $(PROJECT_ROOT) -type f \
 			! -path '$(PROJECT_ROOT)/.git/*' \
-			! -path '$(PROJECT_ROOT)/$(PACKAGE_DIR)/*' \
+			! -path '$(PROJECT_ROOT)/package-*' \
 			! -path '$(PROJECT_ROOT)/openlane/*' \
 			! -name 'Makefile' \
 			! -name '*.tar.gz' \
@@ -113,7 +113,7 @@ github-release: tarball
 		if [ -n "$(GITHUB_TOKEN)" ]; then \
 			export GITHUB_TOKEN=$(GITHUB_TOKEN); \
 		fi; \
-		gh release create $(VERSION) \
+		gh release create $(IP_NAME)-$(VERSION) \
 			--repo $(GITHUB_REPO) \
 			--title "$(IP_NAME)-$(VERSION)" \
 			--notes "Release $(VERSION) of $(IP_NAME)" \
@@ -125,7 +125,7 @@ github-release: tarball
 		echo ""; \
 		echo "Alternatively, create the release manually:"; \
 		echo "  1. Go to: https://github.com/$(GITHUB_REPO)/releases/new"; \
-		echo "  2. Tag: $(VERSION)"; \
+		echo "  2. Tag: $(IP_NAME)-$(VERSION)"; \
 		echo "  3. Title: $(IP_NAME)-$(VERSION)"; \
 		echo "  4. Upload: $(TARBALL)"; \
 		exit 1; \
