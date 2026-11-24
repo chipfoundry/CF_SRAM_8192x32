@@ -74,6 +74,13 @@ module CF_SRAM_8192x32_core (
     assign sram_cs[6] = (AD[12:10] == 3'b110) && EN;
     assign sram_cs[7] = (AD[12:10] == 3'b111) && EN;
 
+    // register A[12:10] sram_cs outcome, and use it to select the
+    // correct 1024x32 macro during the *following* clock cycle!
+    reg [7:0] sram_cs_reg;
+    always @(posedge CLKin) begin
+        sram_cs_reg <= sram_cs;
+    end
+
     // SRAM data outputs
     wire [31:0] sram_do_0, sram_do_1, sram_do_2, sram_do_3;
     wire [31:0] sram_do_4, sram_do_5, sram_do_6, sram_do_7;
@@ -308,25 +315,26 @@ module CF_SRAM_8192x32_core (
         .vpwrpc(vpwrpc)
     );
 
-    // Mux the read data from the eight SRAMs
-    assign sram_do = sram_cs[0] ? sram_do_0 :
-                     sram_cs[1] ? sram_do_1 :
-                     sram_cs[2] ? sram_do_2 :
-                     sram_cs[3] ? sram_do_3 :
-                     sram_cs[4] ? sram_do_4 :
-                     sram_cs[5] ? sram_do_5 :
-                     sram_cs[6] ? sram_do_6 :
-                                  sram_do_7;
+    // Mux the read data from the eight SRAMs using registered selector
+    // corresponding to the *requested* (rather than *current*) A[12:10]
+    assign sram_do = sram_cs_reg[0] ? sram_do_0 :
+                     sram_cs_reg[1] ? sram_do_1 :
+                     sram_cs_reg[2] ? sram_do_2 :
+                     sram_cs_reg[3] ? sram_do_3 :
+                     sram_cs_reg[4] ? sram_do_4 :
+                     sram_cs_reg[5] ? sram_do_5 :
+                     sram_cs_reg[6] ? sram_do_6 :
+                                      sram_do_7;
 
     // Mux the scan chain output
-    assign ScanOutCC = sram_cs[0] ? sram_scan_out_cc_0 :
-                       sram_cs[1] ? sram_scan_out_cc_1 :
-                       sram_cs[2] ? sram_scan_out_cc_2 :
-                       sram_cs[3] ? sram_scan_out_cc_3 :
-                       sram_cs[4] ? sram_scan_out_cc_4 :
-                       sram_cs[5] ? sram_scan_out_cc_5 :
-                       sram_cs[6] ? sram_scan_out_cc_6 :
-                                    sram_scan_out_cc_7;
+    assign ScanOutCC = sram_cs_reg[0] ? sram_scan_out_cc_0 :
+                       sram_cs_reg[1] ? sram_scan_out_cc_1 :
+                       sram_cs_reg[2] ? sram_scan_out_cc_2 :
+                       sram_cs_reg[3] ? sram_scan_out_cc_3 :
+                       sram_cs_reg[4] ? sram_scan_out_cc_4 :
+                       sram_cs_reg[5] ? sram_scan_out_cc_5 :
+                       sram_cs_reg[6] ? sram_scan_out_cc_6 :
+                                        sram_scan_out_cc_7;
 
     // Output assignment
     assign DO = sram_do;
